@@ -161,15 +161,6 @@ def constructWav( strMessage ):
 
 # START:
 main()
-
-if (loadFromFile == False):
-	constructWav(message)
-else:
-	constructWavFromFile("message.txt")
-	
-if repeat == False:
-	playMessage()
-else:
 	while (1):
 		if (loadFromFile == False):
 			constructWav(message)
@@ -178,6 +169,8 @@ else:
 		print("Construction Complete..")
 		playMessage()
 		print("Playing..")
+		if repeat == False: #Check if repeat is off then break
+			break
 
 #kill pifm because it doesn't kill itself, for some stupid reason.
 subprocess.call(["sudo", "killall", "pifm"])
